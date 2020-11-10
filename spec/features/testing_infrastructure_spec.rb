@@ -5,10 +5,7 @@ feature "Testing infrastructure" do
   end
 
   scenario "Players can enter their names that are then displayed on screen" do
-    visit('/')
-    fill_in('player1', with: "ALM")
-    fill_in('player2', with: "AWS")
-    click_button('Submit')
+    sign_in_and_play
     expect(page).to have_content 'ALM'
     expect(page).to have_content 'AWS'
   end
@@ -16,10 +13,7 @@ end
 
 feature "Hit points" do
   scenario "player 1 (starting player) can enter a battle and see their health" do
-    visit('/')
-    fill_in('player1', with: "ALM")
-    fill_in('player2', with: "AWS")
-    click_button('Submit')
+    sign_in_and_play
     expect(page).to have_content 'ALM: 69HP'
   end
 end
