@@ -19,9 +19,10 @@ feature "Hit points" do
 end
 
 feature "Attacking" do
-  scenario "attack Player 2" do
+  scenario "attack Player 2 and confirm that health has been reduced" do
     sign_in_and_play
     click_button 'Attack'
     expect(page).to have_content(/attacked/)
+    expect(page).to have_content(/59HP/)
   end
 end
