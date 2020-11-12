@@ -1,6 +1,8 @@
-<%= $player1.name %> vs. <%= $player2.name %>
+<h1>It's <%= $game.current_turn.name%>'s turn</h1>
 
-<%= $player1.name %>: <%= $player1.health %>HP
+<%= $game.player1.name %> vs. <%= $game.player2.name %>
+
+<%= $game.player1.name %>: <%= $game.player1.health %>HP
 
 <form action="/attack">
     <input type="submit" value="Attack">
