@@ -1,8 +1,26 @@
-<h1>Testing infrastructure working!</h1>
-<form action="/names" method="post">
-    <label for="player1">Player 1</label>
-    <input type="text" name="player1">
-    <label for="player2">Player 2</label>
-    <input type="text" name="player2">
-    <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Black Lodge</title>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="green-glow">ENTER YOUR NAMES</h1>
+        </header>
+        
+        <div class="name-selection">
+        <form action="/names" method="post">
+            <label for="player1">PLAYER 1</label>
+            <input type="text" name="player1">
+            <label for="player2">PLAYER 2</label>
+            <input type="text" name="player2">
+            <button type="submit" value="Submit">Play</button>
+        </form>
+        </div>
+    </div>
+</body>
+</html>

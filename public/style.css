@@ -44,3 +44,11 @@ body {
       max-width: 100%;
       height: auto;
   }
+
+  input, input:focus {
+      outline: none;
+  }
+
+  .name-selection {
+      margin-bottom: 12px;
+  }
