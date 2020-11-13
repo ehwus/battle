@@ -5,6 +5,10 @@ require_relative './lib/game.rb'
 class BattleApp < Sinatra::Base
   enable :sessions
 
+  before do
+    @game = Game.instance
+  end
+
   get '/' do
     erb(:index)
   end
@@ -16,7 +20,7 @@ class BattleApp < Sinatra::Base
   post '/names' do
     player1 = Player.new(params["player1"])
     player2 = Player.new(params["player2"])
-    $game = Game.new(player1, player2)
+    Game.start_game(player1, player2)
     redirect('/play')
   end
 
@@ -25,12 +29,12 @@ class BattleApp < Sinatra::Base
   end
 
   get "/attack" do
-    $game.attack($game.current_turn)
+    @game.attack(@game.current_turn)
     erb(:attack)
   end
 
   get '/next' do
-    redirect('/play') if $game.winner.nil?
+    redirect('/play') if @game.winner.nil?
     redirect('/winner')
   end
 

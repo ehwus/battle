@@ -48,20 +48,16 @@ feature "Attacking" do
 end
 
 feature "Turns" do
-  scenario "player 1 is the first to have turn" do
-    sign_in_and_play
-    expect($game.current_turn.name).to eq("ALM")
-  end
-
-  scenario "player 2 is the second to have turn" do
-    sign_in_and_play
-    click_button 'Attack'
-    expect($game.current_turn.name).to eq("AWS")
-  end
-
   scenario "displays that it's player ones turn" do
     sign_in_and_play
     expect(page).to have_content(/It's ALM's turn/)
+  end
+
+  scenario "then displays its player twos turn" do
+    sign_in_and_play
+    click_button 'Attack'
+    click_button 'Next'
+    expect(page).to have_content(/It's AWS's turn/)
   end
 end
 

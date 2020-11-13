@@ -1,11 +1,20 @@
 class Game
   attr_accessor :player1, :player2
   attr_reader :current_turn, :winner
+  
   def initialize(p1, p2)
     @player1 = p1
     @player2 = p2
     @current_turn = @player1
     @winner = nil
+  end
+
+  def self.start_game(p1, p2)
+    @game = Game.new(p1, p2)
+  end
+
+  def self.instance
+    @game
   end
 
   def attack(player)

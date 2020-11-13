@@ -9,10 +9,10 @@
 <body>
     <div class="container">
         <header>
-            <h1 class="green-glow">It's <%= $game.current_turn.name%>'s turn</h1>
+            <h1 class="green-glow">It's <%= @game.current_turn.name%>'s turn</h1>
         </header>
-        <p><%= $game.player1.name %>: <%= $game.player1.health %>HP</p>
-        <p><%= $game.player2.name %>: <%= $game.player2.health %>HP</p>
+        <p><%= @game.player1.name %>: <%= @game.player1.health %>HP</p>
+        <p><%= @game.player2.name %>: <%= @game.player2.health %>HP</p>
         <form action="/attack">
          <button type="submit" value="Attack">Attack</button>
         </form>
