@@ -9,13 +9,8 @@
 <body>
     <div class="container">
         <header>
-            <h1 class="green-glow"><%= $game.opponent_of($game.current_turn).name %> attacked <%= $game.current_turn.name %>.</h1>
+            <h1 class="green-glow"><%= $game.winner.name %> has beaten <%= $game.opponent_of($game.winner).name %></h1>
         </header>
-            <h2>They now have <%= $game.current_turn.health %>HP remaining.</h2>
-        <form action="/next">
-            <button type="submit" name="Next" value="Next">Next</button>
-        </form>
     </div>
 </body>
 </html>
-

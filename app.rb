@@ -30,6 +30,11 @@ class BattleApp < Sinatra::Base
   end
 
   get '/next' do
-    redirect('/play')
+    redirect('/play') if $game.winner.nil?
+    redirect('/winner')
+  end
+
+  get '/winner' do
+    erb(:winner)
   end
 end

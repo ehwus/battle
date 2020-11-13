@@ -27,4 +27,18 @@ describe Game do
     end
   end
 
+  describe "#winner?" do
+    it "returns nil if players both have positive HP" do
+      expect(test_game.winner).to eq(nil)
+    end
+
+    it "declares that someone has one when hp is <= 0" do
+      soon_to_be_dead_player = double :player, health: -5
+      alive_player = double :player, health: 69
+      game_thats_over = Game.new(soon_to_be_dead_player, alive_player)
+      allow(soon_to_be_dead_player).to receive(:health=)
+      game_thats_over.attack(alive_player)
+      expect(game_thats_over.winner).to eq(alive_player)
+    end
+  end
 end

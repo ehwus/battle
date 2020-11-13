@@ -34,8 +34,16 @@ feature "Attacking" do
   scenario "attack Player 2 and confirm that health has been reduced" do
     sign_in_and_play
     click_button 'Attack'
-    expect(page).to have_content(/attacked/)
-    expect(page).to have_content(/59HP/)
+    expect(page).to have_content(/ALM attacked AWS/)
+  end
+
+  scenario "displays player 2 as attacker on second round" do
+    sign_in_and_play
+    click_button 'Attack'
+    click_button 'Next'
+    click_button 'Attack'
+    expect(page).to have_content(/AWS attacked ALM/)
+
   end
 end
 
@@ -54,5 +62,16 @@ feature "Turns" do
   scenario "displays that it's player ones turn" do
     sign_in_and_play
     expect(page).to have_content(/It's ALM's turn/)
+  end
+end
+
+feature "End Conditions" do
+  scenario "game ends and declares a winner" do
+    sign_in_and_play
+    13.times do
+      click_button 'Attack'
+      click_button 'Next'
+    end
+    expect(page).to have_content(/ALM has beaten AWS/)
   end
 end
