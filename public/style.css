@@ -45,6 +45,10 @@ body {
       height: auto;
   }
 
+  .scale-down {
+      transform: scale(0.75);
+  }
+
   input, input:focus {
       outline: none;
   }
