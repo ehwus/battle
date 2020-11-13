@@ -1,4 +1,21 @@
-<%= $game.player1.name %> attacked <%= $game.player2.name %>. They now have <%= $game.player2.health%>HP remaining.
-<form action="/next">
-    <input type="submit" name="Next" value="Next">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Black Lodge</title>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="green-glow"><%= $game.player1.name %> attacked <%= $game.player2.name %>.</h1>
+        </header>
+            <h2>They now have <%= $game.player2.health%>HP remaining.</h2>
+        <form action="/next">
+            <button type="submit" name="Next" value="Next">Next</button>
+        </form>
+    </div>
+</body>
+</html>
+
