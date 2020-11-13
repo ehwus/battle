@@ -10,8 +10,8 @@ describe Game do
     expect(test).to be_instance_of(Game)
   end
   describe "#attack" do
-    it "removes health from the player inputted" do
-      expect(player1).to receive(:health=)
+    it "removes health from the player not inputted" do
+      expect(player2).to receive(:health=)
       test_game.attack(player1)
     end
   end
@@ -21,7 +21,7 @@ describe Game do
     end
 
     it "goes to player 2 after an attack" do
-      allow(player1).to receive(:health=)
+      allow(player2).to receive(:health=)
       test_game.attack(player1)
       expect(test_game.current_turn).to eq(player2)
     end

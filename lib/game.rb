@@ -8,7 +8,17 @@ class Game
   end
 
   def attack(player)
-    player.health -= 10
+    opponent_of(player).health -= 10
+    change_turn
+  end
+
+  private
+
+  def opponent_of(player)
+    player == @player1 ? @player2 : @player1
+  end
+
+  def change_turn
     if @current_turn == @player1
       @current_turn = @player2
     else

@@ -6,6 +6,10 @@ class BattleApp < Sinatra::Base
   enable :sessions
 
   get '/' do
+    erb(:index)
+  end
+
+  get "/take_names" do
     erb(:player_input)
   end
 
@@ -21,7 +25,7 @@ class BattleApp < Sinatra::Base
   end
 
   get "/attack" do
-    $game.attack($game.player2)
+    $game.attack($game.current_turn)
     erb(:attack)
   end
 
